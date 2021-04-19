@@ -24,11 +24,24 @@ export class MissionMyComponent implements OnInit {
     const id = JSON.parse(decode).user.split('/').pop();
     this.roles = JSON.parse(decode).roles;
     this.usersServices.getDataById(id).subscribe((res) => {
-      this.missions = res['missions'];
+
+      this.missions = res.missions;
+      this.missions.map((mission) => {
+        // get count of hosts by missions
+        console.log(
+          'Mission name : ' + mission.name + 'count => ' + mission.hosts.length
+        );
+        // get all domain already done for progress bar
+        let done = mission.hosts.find(
+          (WebSiteTrue) => WebSiteTrue.checked === true
+        );
+        console.log(done);
+      });
     });
   }
 
   editMission(id): void {
     this.router.navigateByUrl(MissionRouter.redirectToEdit(id));
   }
+
 }
