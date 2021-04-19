@@ -30,10 +30,9 @@ export class MissionMyComponent implements OnInit {
         name,
         current:
           (hosts.filter(({ checked }) => checked).length / hosts.length) * 100,
-        id: id
+        id,
       }));
       this.missions = missionsProgress;
-      console.log(this.missions);
     });
   }
 
