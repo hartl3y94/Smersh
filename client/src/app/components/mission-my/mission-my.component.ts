@@ -11,6 +11,7 @@ import {MissionRouter} from "src/app/router/MissionRouter";
 export class MissionMyComponent implements OnInit {
   public missions = [];
   public roles = [];
+  public missionsProgress = [];
 
   constructor(private usersServices: UsersService, private router: Router) {}
 
@@ -24,19 +25,15 @@ export class MissionMyComponent implements OnInit {
     const id = JSON.parse(decode).user.split('/').pop();
     this.roles = JSON.parse(decode).roles;
     this.usersServices.getDataById(id).subscribe((res) => {
-
       this.missions = res.missions;
-      this.missions.map((mission) => {
-        // get count of hosts by missions
-        console.log(
-          'Mission name : ' + mission.name + 'count => ' + mission.hosts.length
-        );
-        // get all domain already done for progress bar
-        let done = mission.hosts.find(
-          (WebSiteTrue) => WebSiteTrue.checked === true
-        );
-        console.log(done);
-      });
+      const missionsProgress = this.missions.map(({ hosts, name, id }) => ({
+        name,
+        current:
+          (hosts.filter(({ checked }) => checked).length / hosts.length) * 100,
+        id: id
+      }));
+      this.missions = missionsProgress;
+      console.log(this.missions);
     });
   }
 
