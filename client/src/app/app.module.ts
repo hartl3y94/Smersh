@@ -60,6 +60,8 @@ import { ImpactCreateComponent } from './components/impact-create/impact-create.
 import { ConclusionComponent } from './components/conclusion/conclusion.component';
 import { ClientsService } from './services/clients.service';
 import { ClientsListComponent } from 'src/app/components/clients/clientsList.component';
+import { ClientsEditComponent } from 'src/app/components/clients/clientsEdit.component';
+import { ClientsCreateComponent } from 'src/app/components/clients/clientsCreate.component';
 import { ClientEditComponent } from './components/client-edit/client-edit.component';
 import { ClientCreateComponent } from './components/client-create/client-create.component';
 import { VulnTypesService } from './services/vuln-types.service';
@@ -103,6 +105,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     ImpactCreateComponent,
     ConclusionComponent,
     ClientsListComponent,
+    ClientsEditComponent,
+    ClientsCreateComponent,
     ClientEditComponent,
     ClientCreateComponent,
     EditVulnWithStateComponent,

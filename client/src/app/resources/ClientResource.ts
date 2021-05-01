@@ -1,11 +1,11 @@
 import { AbstractResource } from 'src/app/resources/AbstractResource';
 import { ClientsListComponent } from 'src/app/components/clients/clientsList.component';
-import { ClientEditComponent } from 'src/app/components/client-edit/client-edit.component';
-import { ClientCreateComponent } from 'src/app/components/client-create/client-create.component';
+import { ClientsEditComponent } from 'src/app/components/clients/clientsEdit.component';
+import { ClientsCreateComponent } from 'src/app/components/clients/clientsCreate.component';
 
 export class ClientResource extends AbstractResource {
   protected basePath = 'clients';
   protected list = ClientsListComponent;
-  protected edit = ClientEditComponent;
-  protected create = ClientCreateComponent;
+  protected edit = ClientsEditComponent;
+  protected create = ClientsCreateComponent;
 }
